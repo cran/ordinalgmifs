@@ -1,0 +1,8 @@
+useDynLib(ordinalgmifs)
+exportPattern(ordinal.gmifs, coef.ordinalgmifs, plot.ordinalgmifs, print.ordinalgmifs, summary.ordinalgmifs,  predict.ordinalgmifs, fitted.ordinalgmifs)
+S3method(coef, ordinalgmifs)
+S3method(plot, ordinalgmifs)
+S3method(predict, ordinalgmifs)
+S3method(fitted, ordinalgmifs)
+S3method(print, ordinalgmifs)
+S3method(summary, ordinalgmifs)

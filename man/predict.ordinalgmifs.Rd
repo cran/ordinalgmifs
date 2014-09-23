@@ -1,0 +1,44 @@
+\name{predict.ordinalgmifs}
+\alias{predict.ordinalgmifs}
+\alias{fitted.ordinalgmifs}
+\title{
+Predicted probabilities and class for ordinal GMIFS fit.
+}
+\description{
+This function returns a list the includes the predicted probabilities as well as the predicted class for an \code{ordinalgmifs} fitted object.
+}
+\usage{
+\method{predict}{ordinalgmifs}(object, neww = NULL, newx = NULL, model.select = "AIC", ...)
+}
+\arguments{
+  \item{object}{an \code{ordinalgmifs} fitted object.}
+  \item{neww}{an optional matrix of unpenalized variables to use for predicting the response. If omitted, the fitted values are used.}
+  \item{newx}{an optional matrix of penalized variables to use for predicting the response. If omitted, the fitted values are used.}
+  \item{model.select}{when \code{x} is specified any model along the solution path can be selected. The default is \code{model.select="AIC"} which calculates the predicted values using the coefficients from the model having the lowest AIC. Other options are \code{model.select="BIC"} or any numeric value from the solution path.}
+  \item{\dots}{other arguments.}
+}
+\value{
+  \item{predicted}{a matrix of predicted probabilities from the fitted model.}
+  \item{class}{a vector containing the predicted class taken as that class having the largest predicted probability.}
+  \item{\dots}{other arguments.}
+}
+\author{
+Kellie J. Archer, Jiayi Hou, Qing Zhou, Kyle Ferber, John G. Layne, Amanda Gentry
+}
+\seealso{
+See Also \code{\link{coef.ordinalgmifs}}, \code{\link{summary.ordinalgmifs}}, \code{\link{plot.ordinalgmifs}}, \code{\link{ordinalgmifs}}
+}
+\examples{
+\donttest{
+data(hccframe)
+# To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
+# two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
+# in this demonstration.
+hcc.fit<-ordinal.gmifs(group~MPO_E302_R, x=c("DDIT3_P1313_R", "HDAC9_P137_R"), 
+	data=hccframe)
+phat<-predict(hcc.fit)
+table(phat$class, hccframe$group)
+head(phat$predicted)
+}
+}
+\keyword{ methods }

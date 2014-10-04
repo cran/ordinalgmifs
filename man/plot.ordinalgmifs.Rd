@@ -7,7 +7,7 @@ Plot solution path for ordinal GMIFS fitted model.
 This function plots either the coefficient path, the AIC, or the log-likelihood for a fitted \code{ordinalgmifs} object.
 }
 \usage{
-\method{plot}{ordinalgmifs}(x, type = "trace", ...)
+\method{plot}{ordinalgmifs}(x, type = "trace", xlab=NULL, ylab=NULL, main=NULL, ...)
 }
 \arguments{
   \item{x}{
@@ -15,6 +15,15 @@ an \code{ordinalgmifs} object.
 }
   \item{type}{
 default is \code{"trace"} which plots the coefficient path for the fitted object. Also available are \code{"AIC"}, \code{"BIC"}, and \code{"logLik"}.
+}
+  \item{xlab}{
+ a default x-axis label will be used which can be changed by specifying a user-defined x-axis label.
+}
+  \item{ylab}{
+ a default y-axis label will be used which can be changed by specifying a user-defined y-axis label.
+}
+  \item{main}{
+ a default main title will be used which can be changed by specifying a user-defined main title.
 }
   \item{\dots}{other arguments.}
 }

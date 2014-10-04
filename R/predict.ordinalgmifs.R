@@ -43,15 +43,29 @@ function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
 		newx <- object$x
 	}
 	n <- max(dim(neww)[1], dim(newx)[1]) 
-	if (!is.null(newx) & identical(newx,x)) {
-		if (object$scale) {
-			newx<-scale(newx,center=TRUE,scale=TRUE)
-		}
-	} else if (!is.null(newx) && object$scale) {
-		newx<-rbind(x,newx)
-		newx<-scale(newx,center=TRUE,scale=TRUE)
-		newx<-matrix(newx[-(1:dim(x)[1]),],ncol=dim(x)[2])
-	}
+    if (!is.null(newx) & identical(newx, x)) {
+        if (object$scale) {
+        	sd <- apply(newx, 2, sd)
+        	for (i in 1:dim(newx)[2]) {
+        		if (sd[i]==0) {
+            		newx[,i] <- scale(newx[,i], center = TRUE, scale = FALSE)
+            	} else {
+            		newx[,i] <- scale(newx[,i], center = TRUE, scale = TRUE)
+            	}
+        	}
+        }
+    }  else if (!is.null(newx) && object$scale) {
+        	newx <- rbind(x, newx)
+        	sd <- apply(newx, 2, sd)
+        	for (i in 1:dim(newx)[2]) {
+        		if (sd[i]==0) {
+            		newx[,i] <- scale(newx[,i], center = TRUE, scale = FALSE)
+            	} else {
+            		newx[,i] <- scale(newx[,i], center = TRUE, scale = TRUE)
+            	}
+        }
+        newx <- matrix(newx[-(1:dim(x)[1]), ], ncol = dim(x)[2])
+    }
 	levels<-sort(unique(y))
 	if (dim(w)[2]!=0) {
  		if (is.null(x)) {

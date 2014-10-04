@@ -1,4 +1,4 @@
-7c6d06ba90fa51ea352b52d9d29e6d13 *DESCRIPTION
+daf87483ec629fad5b0aab9cc76ab599 *DESCRIPTION
 57fc465dbe71a87ca9e46aee63950760 *NAMESPACE
 45ea5bba0506cdc41452da97d62dddc6 *R/G.R
 d78bf23fad93d6d60e0fc00a9161dd83 *R/coef.ordinalgmifs.R
@@ -14,9 +14,9 @@ b0179a97d75aa706a4da5c9d2c026e39 *R/fn.bcr.R
 0d3cefd6df71345f5524c4db13a20a67 *R/fn.fcr.R
 a92d1b69c91f7b3c7d485a3eaacd7c3f *R/fn.stereo.R
 6b11c3d06a34c4e84e0673b474a51465 *R/gradient.R
-2d8aaeefb4e3570784ea443ea15c7285 *R/ordinal.gmifs.R
-4b3297bfffb1730d7fe6a4a2c1f1987e *R/plot.ordinalgmifs.R
-081675b28fc2dc1d2e67dcfe4bc2c762 *R/predict.ordinalgmifs.R
+f20c9c70cdd2ee0164bf29b5c49cf8fa *R/ordinal.gmifs.R
+8a2f78c3ffba41bba3dc53c09e309216 *R/plot.ordinalgmifs.R
+89ca8df2e835fad1e39264ee1c9d99e2 *R/predict.ordinalgmifs.R
 9eaac8f180b40a580c8905519fff3171 *R/print.ordinalgmifs.R
 4dd46ffc1a3c991f24d8a478450aa7ff *R/summary.ordinalgmifs.R
 22375d6b4d24087e7f4de0183efc889a *data/eyedisease.rda
@@ -26,10 +26,10 @@ a92d1b69c91f7b3c7d485a3eaacd7c3f *R/fn.stereo.R
 0761f22410c3270d443beeef70f94ea9 *man/eyedisease.Rd
 38d193ee8f40f83d62566430ae8d85ed *man/hccframe.Rd
 9162af784431a9fe3affd93faed96702 *man/hccmethyl.Rd
-cfb1f017c100129729799022892dc698 *man/ordinal.gmifs.Rd
+4d600feb2da0a50bb6eb5b052bdd698a *man/ordinal.gmifs.Rd
 60ec8db3a9d20f102dd2313b912f3506 *man/ordinalgmifs-internal.Rd
 a05d9cbfc0a5552423b241c230731a99 *man/ordinalgmifs-package.Rd
-292bfd5f0548f69966cd7ab0fae1d21b *man/plot.ordinalgmifs.Rd
+03589a277f8375bc4810908fbed08bb6 *man/plot.ordinalgmifs.Rd
 c6e64ab71af679dd22bf41d348743f29 *man/predict.ordinalgmifs.Rd
 53ac7addff3ad8592efddae4f9e48c61 *man/print.ordinalgmifs.Rd
 3138a93a080018b9914a84b835f38f7f *man/summary.ordinalgmifs.Rd

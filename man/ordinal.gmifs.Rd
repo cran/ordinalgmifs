@@ -57,9 +57,9 @@ See Also \code{\link{coef.ordinalgmifs}}, \code{\link{summary.ordinalgmifs}}, \c
 data(hccframe)
 # To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
 # two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
-# in this demonstration.
+# in this demonstration, and epsilon is set to 0.01
 hcc.fit<-ordinal.gmifs(group~MPO_E302_R, x=c("DDIT3_P1313_R", "HDAC9_P137_R"), 
-	data=hccframe)
+	data=hccframe, epsilon=0.01)
 }
 \keyword{ models }
 \keyword{ regression }

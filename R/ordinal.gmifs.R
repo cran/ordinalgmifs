@@ -125,9 +125,16 @@ function(formula, data, x=NULL, subset, epsilon=0.001, tol=1e-5, scale=TRUE,
 	if (!is.null(x)) {
 		vars <- dim(x)[2]
 		oldx <- x
-		if (scale) {
-			x <- scale(x, center = TRUE, scale = TRUE)
-    	}
+    	if (scale) {
+        	sd <- apply(x, 2, sd)
+        	for (i in 1:dim(x)[2]) {
+        		if (sd[i]==0) {
+            		x[,i] <- scale(x[,i], center = TRUE, scale = FALSE)
+            	} else {
+            		x[,i] <- scale(x[,i], center = TRUE, scale = TRUE)
+            	}
+        	}
+        }
     	x <- cbind(x, -1 * x)
     	beta <- rep(0, dim(x)[2])
     	names(beta) <- dimnames(x)[[2]]

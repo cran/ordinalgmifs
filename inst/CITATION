@@ -1,0 +1,17 @@
+citHeader("To cite ordinalgmifs in publications use:")
+
+citEntry(entry = "Article",
+  title        = "{ordinalgmifs}: An {R} Package for Ordinal Regression in High-dimensional Data Settings",
+  author       = personList(as.person("Kellie J. Archer"), as.person("Jiayi Hou"), as.person("Qing Zhou"), as.person("Kyle Ferber"), as.person("John G. Layne"), as.person("Amanda Elswick Gentry")),
+  journal      = "Cancer Informatics",
+  year         = "2014",
+  pages        = "accepted",
+  url          = "http://www.la-press.com/journal-cancer-informatics-j10",
+
+  textVersion  =
+  paste("Kellie J. Archer, Jiayi Hou, Qing Zhou, Kyle Ferber, John G. Layne, Amanda Gentry  (2014).",
+        "ordinalgmifs: An R Package for Ordinal Regression in High-dimensional Data Settings.",
+        "Cancer Informatics, accepted.",
+        "URL http://www.la-press.com/journal-cancer-informatics-j10.")
+)
+

@@ -12,8 +12,8 @@ This package provides a function, ordinal.gmifs, for fitting cumulative link, ad
 \tabular{ll}{
 Package: \tab ordinalgmifs\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-07-07\cr
+Version: \tab 1.0.2\cr
+Date: \tab 2014-11-04\cr
 License: \tab What license is it under?\cr
 }
 This package contains generic methods (coef, plot, predict, print, summary) that can be invoked for an object fitted using ordinal.gmifs. 

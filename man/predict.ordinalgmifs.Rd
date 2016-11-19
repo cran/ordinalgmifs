@@ -2,18 +2,19 @@
 \alias{predict.ordinalgmifs}
 \alias{fitted.ordinalgmifs}
 \title{
-Predicted probabilities and class for ordinal GMIFS fit.
+Predicted Probabilities and Class for Ordinal GMIFS Fit.
 }
 \description{
 This function returns a list the includes the predicted probabilities as well as the predicted class for an \code{ordinalgmifs} fitted object.
 }
 \usage{
-\method{predict}{ordinalgmifs}(object, neww = NULL, newx = NULL, model.select = "AIC", ...)
+\method{predict}{ordinalgmifs}(object, neww = NULL, newdata, newx = NULL, model.select = "AIC", ...)
 }
 \arguments{
   \item{object}{an \code{ordinalgmifs} fitted object.}
-  \item{neww}{an optional matrix of unpenalized variables to use for predicting the response. If omitted, the fitted values are used.}
-  \item{newx}{an optional matrix of penalized variables to use for predicting the response. If omitted, the fitted values are used.}
+  \item{neww}{an optional formula that includes the unpenalized variables to use for predicting the response. If omitted, the training data are used.}
+  \item{newdata}{an optional data.frame that minimally includes the unpenalized variables to use for predicting the response. If omitted, the training data are used.}
+  \item{newx}{an optional matrix of penalized variables to use for predicting the response. If omitted, the training data are used.}
   \item{model.select}{when \code{x} is specified any model along the solution path can be selected. The default is \code{model.select="AIC"} which calculates the predicted values using the coefficients from the model having the lowest AIC. Other options are \code{model.select="BIC"} or any numeric value from the solution path.}
   \item{\dots}{other arguments.}
 }
@@ -39,6 +40,7 @@ hcc.fit<-ordinal.gmifs(group~MPO_E302_R, x=c("DDIT3_P1313_R", "HDAC9_P137_R"),
 phat<-predict(hcc.fit)
 table(phat$class, hccframe$group)
 head(phat$predicted)
+# See the package vignette if an independent test set is used for prediction.
 }
 }
 \keyword{ methods }

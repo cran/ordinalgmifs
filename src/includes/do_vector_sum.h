@@ -46,8 +46,7 @@ SEXP do_vector_sum(SEXP V) {
 		Rprintf("C code do_vector_sum...\n");
 		return R_NilValue;
 	}
-	int i=0, j=0,
-		protections=0,
+	int protections=0,
 		len;
 	double* pV;
 
@@ -96,7 +95,7 @@ SEXP vector_sum(double* V, int len) {
 	double* pV = &*V;
 	double* Vend = &*pV + len;
 	//  step through items in vector:
-	double* pVi;
+	//double* pVi;
 	//  use fastest memory in machine if available
 	register double sum = 0.0;
 	for (pV; pV<Vend; pV++) {

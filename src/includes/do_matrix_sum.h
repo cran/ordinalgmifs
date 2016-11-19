@@ -49,8 +49,7 @@ SEXP do_matrix_sum_rows(SEXP A) {
 		Rprintf("do_matrix_sum_rows...\n");
 		return R_NilValue;
 	}
-	int i=0, j=0,
-		protections=0, 
+	int protections=0, 
 		*dims;
 	double* pA;
 

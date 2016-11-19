@@ -126,7 +126,7 @@ SEXP mult_matrix_ptr(double* A, int dimsa[2],
 		The size of the final matrix is determined by the rows in the 
 		left matrix (A) and the columns in the right (B).
 	*/
-	int protections;
+	int protections=0;
 	SEXP M;
 	PROTECT(M = allocMatrix(REALSXP, dimsa0, dimsb1));
 	protections++;
@@ -144,11 +144,11 @@ SEXP mult_matrix_ptr(double* A, int dimsa[2],
 	double* pAR = &*A;
 	double* ARend = &*pAR + dimsa[0];
 	double* pBR = &*B;
-	double* BRend = &*pBR + dimsb[0];
+	//double* BRend = &*pBR + dimsb[0];
 	double* pBCend = &B[dimsb[0] * dimsb[1] - dimsb[0]];
 	double* pACend;
 	//  incrementers for items in matrices:
-	double* pAC;
+	//double* pAC;
 	double* pACi;
 	double* pBC;
 	double* pBCi;

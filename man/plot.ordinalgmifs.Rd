@@ -1,7 +1,7 @@
 \name{plot.ordinalgmifs}
 \alias{plot.ordinalgmifs}
 \title{
-Plot solution path for ordinal GMIFS fitted model.
+Plot Solution Path for Ordinal GMIFS Fitted Model.
 }
 \description{
 This function plots either the coefficient path, the AIC, or the log-likelihood for a fitted \code{ordinalgmifs} object.

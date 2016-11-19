@@ -5,13 +5,49 @@ citEntry(entry = "Article",
   author       = personList(as.person("Kellie J. Archer"), as.person("Jiayi Hou"), as.person("Qing Zhou"), as.person("Kyle Ferber"), as.person("John G. Layne"), as.person("Amanda Elswick Gentry")),
   journal      = "Cancer Informatics",
   year         = "2014",
-  pages        = "accepted",
-  url          = "http://www.la-press.com/journal-cancer-informatics-j10",
+  volume	   = "13",
+  pages        = "187-195",
+  url          = "http://www.la-press.com/article.php?article_id=4569",
 
   textVersion  =
   paste("Kellie J. Archer, Jiayi Hou, Qing Zhou, Kyle Ferber, John G. Layne, Amanda Gentry  (2014).",
         "ordinalgmifs: An R Package for Ordinal Regression in High-dimensional Data Settings.",
-        "Cancer Informatics, accepted.",
-        "URL http://www.la-press.com/journal-cancer-informatics-j10.")
+        "Cancer Informatics, 13:187-195.",
+        "URL http://www.la-press.com/article.php?article_id=4569.")
 )
 
+citHeader("To cite the no penalty subset functionality of ordinalgmifs in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Penalized Ordinal Regression Methods for Predicting Stage of Cancer in High-Dimensional Covariate Spaces",
+  author       = personList(as.person("Amanda Elswick Gentry"), as.person("Colleen Jackson-Cook"), as.person("Debra Lyon"), as.person("Kellie J. Archer")),
+  journal      = "Cancer Informatics",
+  year         = "2015",
+  volume	   = "14",
+  pages        = "201-208",
+  url          = "http://www.la-press.com/article.php?article_id=4867",
+
+  textVersion  =
+  paste("Amanda Gentry, Colleen Jackson-Cook, Debra Lyon, Kellie J. Archer  (2015).",
+        "Penalized Ordinal Regression Methods for Predicting Stage of Cancer in High-Dimensional Covariate Spaces.",
+        "Cancer Informatics, 14(Suppl 2):201-208.",
+        "URL http://www.la-press.com/article.php?article_id=4867.")
+)
+
+citHeader("To cite using the forward continuation ratio with a complementary log-log link for discrete survival modeling using ordinalgmifs in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Modeling Discrete Survival Time Using Genomic Feature Data.",
+  author       = personList(as.person("Kyle Ferber"), as.person("Kellie J. Archer")),
+  journal      = "Cancer Informatics",
+  year         = "2015",
+  volume	   = "14",
+  pages        = "37-43",
+  url          = "http://www.la-press.com/article.php?article_id=4698",
+
+  textVersion  =
+  paste("Kyle Ferber, Kellie J. Archer  (2015).",
+        "Modeling Discrete Survival Time Using Genomic Feature Data.",
+        "Cancer Informatics, 14(Suppl 2):37-43.",
+        "URL http://www.la-press.com/article.php?article_id=4698.")
+)

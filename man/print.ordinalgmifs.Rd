@@ -1,7 +1,7 @@
 \name{print.ordinalgmifs}
 \alias{print.ordinalgmifs}
 \title{
-Print the contents of an ordinal GMIFS fitted object.
+Print the Contents of an Ordinal GMIFS Fitted Object.
 }
 \description{
 This function prints the names of the list objects from an \code{ordinalgmifs} fitted model.

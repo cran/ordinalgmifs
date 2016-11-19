@@ -12,8 +12,8 @@ This package provides a function, ordinal.gmifs, for fitting cumulative link, ad
 \tabular{ll}{
 Package: \tab ordinalgmifs\cr
 Type: \tab Package\cr
-Version: \tab 1.0.2\cr
-Date: \tab 2014-11-04\cr
+Version: \tab 1.0.3\cr
+Date: \tab 2016-11-15\cr
 License: \tab What license is it under?\cr
 }
 This package contains generic methods (coef, plot, predict, print, summary) that can be invoked for an object fitted using ordinal.gmifs. 
@@ -21,7 +21,7 @@ This package contains generic methods (coef, plot, predict, print, summary) that
 \author{
 Kellie J. Archer, Jiayi Hou, Qing Zhou, Kyle Ferber, John G. Layne, Amanda Gentry
 
-Maintainer: Kellie J. Archer <kjarcher@vcu.edu>
+Maintainer: Kellie J. Archer <archer.43@osu.edu>
 }
 \references{
 Hastie T., Taylor J., Tibshirani R., and Walther G. (2007) Forward stagewise regression and the monotone lasso. \emph{Electronic Journal of Statistics}, 1, 1-29.

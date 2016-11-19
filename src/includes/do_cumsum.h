@@ -7,6 +7,13 @@
 
  ***********************************************************************/
 
+#ifdef __clang__
+#define COMPILER "clang"
+#pragma clang diagnostic ignored "-Wunused-value"
+#else
+#define COMPILER "gcc"
+#endif
+
 /////////////////////////////////////////////////////////////////////////
 //  function prototypes
 /////////////////////////////////////////////////////////////////////////

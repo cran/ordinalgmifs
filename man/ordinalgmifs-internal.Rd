@@ -14,7 +14,7 @@
 \alias{gradient}
 
 \title{
-Functions called by ordinalgmifs functions, not by the user
+Functions Called by ordinalgmifs Functions, Not by the User
 }
 \description{
 These functions are called my other \code{ordinalgmifs} functions and are not intended to be directly called by the user.
@@ -24,7 +24,7 @@ The \code{du.adjcat}, \code{du.bcr}, \code{du.cum}, \code{du.fcr}, and \code{du.
 The \code{G} function returns the probability for the indicated link function. The \code{gradient} function returns the gradient of the log-likelihood for the cumulative link models and is used for the cumulative link constrained optimization.
 }
 \author{
-Kellie J. Archer, \email{kjarcher@vcu.edu}
+Kellie J. Archer, \email{archer.43@osu.edu}
 }
 \seealso{
 See Also as \code{\link{ordinalgmifs}}.

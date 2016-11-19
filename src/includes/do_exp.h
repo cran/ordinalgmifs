@@ -59,10 +59,9 @@ SEXP do_exp(SEXP k, SEXP Z, SEXP pizmat) {
 		return R_NilValue;
 	}
 
-	int i=0, j=0, len=0, 
+	int len=0, 
 		protections=0, 
-		*zdims,
-		ndx, ndx_back;
+		*zdims;
 	double* pZ;
 	double* piz;
 	

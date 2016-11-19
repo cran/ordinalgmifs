@@ -9,7 +9,7 @@ This function can fit a cumulative link, adjacent category, forward and backward
 \usage{
 ordinal.gmifs(formula, data, x = NULL, subset, epsilon = 0.001, tol = 1e-05, 
 	scale = TRUE, probability.model = "Cumulative", link = "logit", 
-	verbose=FALSE, ...)
+	verbose=FALSE, assumption=NULL, ...)
 }
 
 \arguments{
@@ -23,6 +23,7 @@ ordinal.gmifs(formula, data, x = NULL, subset, epsilon = 0.001, tol = 1e-05,
   \item{probability.model}{the type of ordinal response model to be fit. Can be \code{"Cumulative"}, \code{"AdjCategory"}, \code{"ForwardCR"}, \code{"BackwardCR"}, or \code{"Stereotype"}}
   \item{link}{the link function used. Allowable links for \code{"Cumulative"}, \code{"ForwardCR"}, and \code{"BackwardCR"} are \code{"logit"}, \code{"probit"}, and \code{"cloglog"}. For an \code{"AdjCategory"} model only a \code{"loge"} link is allowed; for a \code{"Stereotype"} model only a \code{"logit"} link is allowed.}
   \item{verbose}{logical, if TRUE the step number is printed to the console (default is FALSE).}
+  \item{assumption}{integer, only use with \code{probability.model = "ForwardCR"} and \code{link = "cloglog"} to denote the assumption to use for discrete censored survival modeling. If \code{assumption = 1}, assume the observation was censored at the end of the discrete time interval in which the censoring occurred; if \code{assumption = 2}, assume the observation was censored at the beginning of the interval in which censoring occurred; if \code{assumption = 3}, assume constant hazard rate within the interval in which the censoring occurred; if no censoring occurs, do not specify a value for \code{assumption}.}
   \item{\dots}{additional arguments }
 }
 \details{

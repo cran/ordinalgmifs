@@ -47,8 +47,7 @@ SEXP do_row_products(SEXP A) {
 		Rprintf("C code do_row_products...\n");
 		return R_NilValue;
 	}
-	int i=0, j=0,
-		protections=0, 
+	int protections=0, 
 		*dims;
 	double* pA;
 

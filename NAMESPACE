@@ -1,5 +1,9 @@
 useDynLib(ordinalgmifs)
 exportPattern(ordinal.gmifs, coef.ordinalgmifs, plot.ordinalgmifs, print.ordinalgmifs, summary.ordinalgmifs,  predict.ordinalgmifs, fitted.ordinalgmifs)
+importFrom("graphics", "matplot", "plot", "title")
+importFrom("stats", "constrOptim", "dnorm", "model.matrix", "model.frame",
+             "model.response", "optim", "pnorm", "qnorm")
+importFrom("survival", "Surv")
 S3method(coef, ordinalgmifs)
 S3method(plot, ordinalgmifs)
 S3method(predict, ordinalgmifs)

@@ -1,5 +1,6 @@
-predict.ordinalgmifs <-
-function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
+predict.ordinalgmifs<-function (object, neww = NULL, newdata, newx = NULL, model.select = "AIC", 
+    ...) 
+{
     if (model.select == "AIC") {
         model.select = object$model.select
     }
@@ -17,10 +18,10 @@ function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
                 zeta <- object$zeta[model.select]
             }
             else {
-                zeta <- object$zeta[model.select, ]
+                zeta <- object$zeta[model.select,]
             }
         }
-        beta <- object$beta[model.select, ]
+        beta <- object$beta[model.select,]
         if (object$probability.model == "Stereotype") {
             if (is.null(dim(object$phi))) {
                 phi <- object$phi[model.select]
@@ -40,8 +41,14 @@ function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
         }
     }
     k <- length(unique(y))
-    if (!is.null(neww)) 
-        neww <- as.matrix(neww)
+    if (!is.null(neww))
+    	if (neww==~1) {
+    		m <- model.frame(neww)
+    	} else {
+    	m <- model.frame(neww, newdata) 
+        neww <- model.matrix(neww, m)
+        neww <- neww[,-grep("(Intercept)",dimnames(neww)[[2]]),drop=FALSE]
+        }
     if (!is.null(newx)) 
         newx <- as.matrix(newx)
     if (is.null(neww) & is.null(newx)) {
@@ -148,10 +155,13 @@ function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
         for (i in 1:(k - 1)) {
             eta[, i] <- alpha[i] + Xb
         }
-        if (n==1) {
-        	eta.cumsum <- matrix(cumsum(eta), nrow = nrow(eta), byrow = T)
-        } else {
-        	eta.cumsum <- matrix(apply(eta, 1, cumsum), nrow = nrow(eta), byrow = T)        	
+        if (n == 1) {
+            eta.cumsum <- matrix(cumsum(eta), nrow = nrow(eta), 
+                byrow = T)
+        }
+        else {
+            eta.cumsum <- matrix(apply(eta, 1, cumsum), nrow = nrow(eta), 
+                byrow = T)
         }
         numer <- rep(0, dim(eta.cumsum)[1])
         for (i in 1:dim(eta.cumsum)[2]) {
@@ -170,10 +180,13 @@ function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
             pi[, 2] <- G(alpha[2] + Xb, link) * (1 - pi[, 1])
             if (k > 3) {
                 for (i in 3:(k - 1)) {
-                  if (n==1) {
-                  	pi[, i] <- G(alpha[i] + Xb, link) * (1 - sum(pi[,1:(i - 1)]))
-                  } else if (n>1) {
-                    pi[, i] <- G(alpha[i] + Xb, link) * (1 - rowSums(pi[,1:(i - 1)]))
+                  if (n == 1) {
+                    pi[, i] <- G(alpha[i] + Xb, link) * (1 - 
+                      sum(pi[, 1:(i - 1)]))
+                  }
+                  else if (n > 1) {
+                    pi[, i] <- G(alpha[i] + Xb, link) * (1 - 
+                      rowSums(pi[, 1:(i - 1)]))
                   }
                 }
             }
@@ -183,19 +196,23 @@ function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
             pi[, 2] <- pnorm(alpha[2] + Xb) * (1 - pi[, 1])
             if (k > 3) {
                 for (i in 3:(k - 1)) {
-                  if (n==1) {
-                  	pi[, i] <- pnorm(alpha[i] + Xb) * (1 - sum(pi[,1:(i - 1)]))
-                  } else {
-                  	pi[, i] <- pnorm(alpha[i] + Xb) * (1 - rowSums(pi[,1:(i - 1)]))                 	
+                  if (n == 1) {
+                    pi[, i] <- pnorm(alpha[i] + Xb) * (1 - sum(pi[, 
+                      1:(i - 1)]))
+                  }
+                  else {
+                    pi[, i] <- pnorm(alpha[i] + Xb) * (1 - rowSums(pi[, 
+                      1:(i - 1)]))
                   }
                 }
             }
         }
-        if (n==1) {
+        if (n == 1) {
             pi[, k] <- 1 - sum(pi[, 1:(k - 1)])
-        } else {
+        }
+        else {
             pi[, k] <- 1 - rowSums(pi[, 1:(k - 1)])
-		}
+        }
     }
     else if (object$probability.model == "BackwardCR") {
         pi <- matrix(0, nrow = n, ncol = k)
@@ -205,31 +222,39 @@ function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
                 pi[, k])
             if (k > 3) {
                 for (i in (k - 2):2) {
-                  if (n==1) {
-                  	pi[, i] <- G(alpha[i - 1] + Xb, link) * (1 - sum(pi[, k:(i + 1)]))
-                  } else {
-                   	pi[, i] <- G(alpha[i - 1] + Xb, link) * (1 - rowSums(pi[, k:(i + 1)]))                 	
+                  if (n == 1) {
+                    pi[, i] <- G(alpha[i - 1] + Xb, link) * (1 - 
+                      sum(pi[, k:(i + 1)]))
+                  }
+                  else {
+                    pi[, i] <- G(alpha[i - 1] + Xb, link) * (1 - 
+                      rowSums(pi[, k:(i + 1)]))
                   }
                 }
             }
         }
         else if (link == "probit") {
             pi[, k] <- pnorm(alpha[k - 1] + Xb)
-            pi[, k - 1] <- pnorm(alpha[k - 2] + Xb) * (1 - pi[, k])
+            pi[, k - 1] <- pnorm(alpha[k - 2] + Xb) * (1 - pi[, 
+                k])
             if (k > 3) {
                 for (i in (k - 2):2) {
-                  if (n==1) {
-                  	pi[, i] <- pnorm(alpha[i - 1] + Xb) * (1 - sum(pi[, k:(i + 1)]))                  	
-                  } else {
-                  	pi[, i] <- pnorm(alpha[i - 1] + Xb) * (1 - rowSums(pi[, k:(i + 1)]))
+                  if (n == 1) {
+                    pi[, i] <- pnorm(alpha[i - 1] + Xb) * (1 - 
+                      sum(pi[, k:(i + 1)]))
+                  }
+                  else {
+                    pi[, i] <- pnorm(alpha[i - 1] + Xb) * (1 - 
+                      rowSums(pi[, k:(i + 1)]))
                   }
                 }
             }
         }
-        if (n==1) {
-        	pi[, 1] <- 1 - sum(pi[, k:2])
-        } else {
-        	pi[, 1] <- 1 - rowSums(pi[, k:2])        	
+        if (n == 1) {
+            pi[, 1] <- 1 - sum(pi[, k:2])
+        }
+        else {
+            pi[, 1] <- 1 - rowSums(pi[, k:2])
         }
     }
     else if (object$probability.model == "Stereotype") {
@@ -237,10 +262,11 @@ function(object, neww=NULL, newx=NULL, model.select="AIC", ...) {
         for (i in 1:(k - 1)) {
             eta[, i] <- exp(alpha[i] + phi[i] * Xb)
         }
-        if (n==1) {
-        	pik <- 1 - sum(eta)/(1 + sum(eta))
-        } else {
-        	pik <- 1 - rowSums(eta)/(1 + rowSums(eta))       	
+        if (n == 1) {
+            pik <- 1 - sum(eta)/(1 + sum(eta))
+        }
+        else {
+            pik <- 1 - rowSums(eta)/(1 + rowSums(eta))
         }
         pi <- matrix(0, ncol = k, nrow = n)
         pi[, k] <- pik

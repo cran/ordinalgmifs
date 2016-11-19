@@ -1,5 +1,5 @@
 du.fcr <-
-function(eta, x, k, Ymat, Cum.Ymat, link) {
+function(eta, x, k, Ymat, Cum.Ymat, link, y.class, Cum.Tmat) {
 	if (link=="logit") {
 		z1 <- 1 / (1+exp(eta)) * Ymat[, 1:(k-1)] -
 			exp(eta) / (1+exp(eta)) * 
@@ -13,11 +13,21 @@ function(eta, x, k, Ymat, Cum.Ymat, link) {
         update.value<-min(u)
 		update.j<-which.min(u)
     } else if (link=="cloglog") {
-    	d.delta<-matrix(0,ncol=k-1,nrow=dim(x)[1])
-		for (i in 1:(k-1)) {
-			d.delta[,i]<-exp(-exp(eta[,i])+eta[,i])
+###    
+   		if (y.class == "Surv") {
+      		d.delta <- matrix(0, ncol=k, nrow=dim(x)[1])
+      		for (i in 1:k) {
+          		d.delta[, i] <- exp(-exp(eta[, i]) + eta[, i])
+      		}
+      		z1 <- (1/G(eta, link)) * (Ymat[, 1:k]) * d.delta - (Cum.Tmat-Ymat[, 1:k]) * (1/(1-G(eta, link))) * d.delta
+   		} else {
+###    
+    		d.delta<-matrix(0,ncol=k-1,nrow=dim(x)[1])
+			for (i in 1:(k-1)) {
+				d.delta[,i]<-exp(-exp(eta[,i])+eta[,i])
+			}
+			z1<- (1/G(eta, link))*Ymat[,1:(k-1)]*d.delta + (Cum.Ymat-Ymat[,1:(k-1)])*(1/(1-G(eta, link)))*-d.delta
 		}
-		z1<- (1/G(eta, link))*Ymat[,1:(k-1)]*d.delta + (Cum.Ymat-Ymat[,1:(k-1)])*(1/(1-G(eta, link)))*-d.delta
 		u <- t(x) %*% z1
         update.value <- min(rowSums(-u, na.rm=TRUE))
         update.j <- which.min(rowSums(-u, na.rm=TRUE))  

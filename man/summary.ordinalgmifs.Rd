@@ -1,7 +1,7 @@
 \name{summary.ordinalgmifs}
 \alias{summary.ordinalgmifs}
 \title{
-Summarize an ordinalgmifs object.
+Summarize an Ordinal GMIFS Object.
 }
 \description{
 \code{summary} method for class \code{ordinalgmifs}.}

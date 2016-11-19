@@ -1,7 +1,11 @@
 fn.fcr <-
-function(par, w, x, beta, y, k, Ymat, Cum.Ymat, link) {
+function(par, w, x, beta, y, k, Ymat, Cum.Ymat, link, Cum.Tmat, y.class) {
 	if (dim(w)[2]!=0) {
-    	zeta <- par[k:length(par)]
+		if (y.class == "Surv") {
+			zeta <- par[(k + 1):length(par)]
+    	} else {
+    		zeta <- par[k:length(par)]    	
+    	}
 		if (is.null(x)) {
     		Xb <- w%*%zeta
     	} else if (!is.null(x)) {
@@ -37,20 +41,31 @@ function(par, w, x, beta, y, k, Ymat, Cum.Ymat, link) {
 		pi <- .Call("do_row_products", pi)
 		loglik <- .Call("do_vector_sum", log(pi))
     } else if (link=="cloglog") {
-    	G.mat <- matrix(0, nrow = length(y), ncol = k)  
-    	G.mat[,1]<-G(par[1]+Xb, link)
-    	G.mat[,2]<-G(par[2]+Xb, link)*(1-G.mat[,1])
-    	if (k>3) {
-    		for (i in 3:(k-1)) {
-    			G.mat[,i]<-G(par[i]+Xb, link)*(1-matrix(apply(G.mat[,1:(i-1)],1,sum),nrow=nrow(G.mat),byrow=T))
+##    
+  		if (y.class=="Surv") {
+  			G.mat <- matrix(0, nrow = length(y), ncol = k)  
+  			for (i in 1:k) {
+    			G.mat[, i] <- G(par[i] + Xb, link) ^ Ymat[, i] * (1 - G(par[i] + Xb, link)) ^ (Cum.Tmat[, i] - Ymat[, i])
+  			}
+  			pi <- apply(G.mat, 1, prod)
+  			loglik <- log(prod(pi))
+  		} else {  
+##    
+    		G.mat <- matrix(0, nrow = length(y), ncol = k)  
+    		G.mat[,1]<-G(par[1]+Xb, link)
+    		G.mat[,2]<-G(par[2]+Xb, link)*(1-G.mat[,1])
+    		if (k>3) {
+    			for (i in 3:(k-1)) {
+    				G.mat[,i]<-G(par[i]+Xb, link)*(1-matrix(apply(G.mat[,1:(i-1)],1,sum),nrow=nrow(G.mat),byrow=T))
+				}
 			}
-		}
-		G.mat[,k]<-1-matrix(apply(G.mat[,1:(k-1)],1,sum),nrow=nrow(G.mat),byrow=T)
-#		pi <- Ymat*G.mat
-#    	pi <- apply(pi,1,sum)
-#    	loglik <- sum(log(pi))
-		pi <- .Call("do_matrix_sum_rows", Ymat*G.mat)
-		loglik <- .Call("do_vector_sum", log(pi))
+			G.mat[,k]<-1-matrix(apply(G.mat[,1:(k-1)],1,sum),nrow=nrow(G.mat),byrow=T)
+#			pi <- Ymat*G.mat
+#    		pi <- apply(pi,1,sum)
+#    		loglik <- sum(log(pi))
+			pi <- .Call("do_matrix_sum_rows", Ymat*G.mat)
+			loglik <- .Call("do_vector_sum", log(pi))
+		}	
     }
     -loglik
 }

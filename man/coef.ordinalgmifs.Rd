@@ -4,7 +4,7 @@
 Extract Model Coefficients
 }
 \description{
-\code{coef.ordinalgmifs} is a generic function which extracts the model coefficients from a fitted model object fit using \code{ordinal.gmifs}
+\code{coef.ordinalgmifs} is a generic function which extracts the model coefficients from a fitted model object fit using \code{ordinalgmifs}
 }
 \usage{
 \method{coef}{ordinalgmifs}(object, model.select = "AIC", ...)
@@ -28,19 +28,18 @@ Hastie T., Taylor J., Tibshirani R., and Walther G. (2007) Forward stagewise reg
 Kellie J. Archer
 }
 \seealso{
-See Also \code{\link{ordinal.gmifs}}, \code{\link{summary.ordinalgmifs}}, \code{\link{plot.ordinalgmifs}}, \code{\link{predict.ordinalgmifs}}
+See Also \code{\link{ordinalgmifs}}, \code{\link{summary.ordinalgmifs}}, \code{\link{plot.ordinalgmifs}}, \code{\link{predict.ordinalgmifs}}
 }
-\examples{
-\donttest{
-data(hccframe)
-# To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
-# two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
-# in this demonstration.
-hcc.fit<-ordinal.gmifs(group~MPO_E302_R, x=c("DDIT3_P1313_R", "HDAC9_P137_R"), 
-	data=hccframe)
-coef(hcc.fit)
-}
-}
+%\examples{
+%\donttest{
+%data(hccframe)
+%# To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
+%# two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
+%# in this demonstration.
+%hcc.fit <- ordinalgmifs(group ~ MPO_E302_R, x = c("DDIT3_P1313_R", "HDAC9_P137_R"), data = hccframe)
+%coef(hcc.fit)
+%}
+%}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ methods }

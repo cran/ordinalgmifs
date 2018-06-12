@@ -95,10 +95,9 @@ SEXP vector_sum(double* V, int len) {
 	double* pV = &*V;
 	double* Vend = &*pV + len;
 	//  step through items in vector:
-	//double* pVi;
 	//  use fastest memory in machine if available
 	register double sum = 0.0;
-	for (pV; pV<Vend; pV++) {
+	for (; pV<Vend; pV++) {
 		sum += *pV;
 	}
 	*pS = sum;

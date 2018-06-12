@@ -67,16 +67,10 @@ The full dataset is available as GSE18081 from Gene Expression Omnibus at \url{h
 \references{
 Archer KJ, Mas VR, Maluf DG, Fisher RA. High-throughput assessment of CpG site methylation for distinguishing between HCV-cirrhosis and HCV-associated hepatocellular carcinoma. Molecular Genetics and Genomics, 283(4): 341-349, 2010.
 }
-\examples{
-\donttest{
-data(hccframe)
-# To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
-# two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
-# in this demonstration.
-hcc.fit<-ordinal.gmifs(group~MPO_E302_R, x=c("DDIT3_P1313_R", "HDAC9_P137_R"), 
-	data=hccframe)
-phat<-predict(hcc.fit)
-table(phat$class, hccframe$group)
+\seealso{
+See Also as \code{ \link{ordinalgmifs} }
 }
+\examples{
+data(hccframe)
 }
 \keyword{datasets}

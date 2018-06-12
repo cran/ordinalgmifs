@@ -28,17 +28,16 @@ the probability model and link used and model parameter estimates. For models th
 Kellie J. Archer
 }
 \seealso{
-See Also \code{\link{coef.ordinalgmifs}}, \code{\link{ordinalgmifs}}, \code{\link{plot.ordinalgmifs}}, \code{\link{predict.ordinalgmifs}}
+See Also \code{\link{ordinalgmifs}}, \code{\link{coef.ordinalgmifs}}, \code{\link{plot.ordinalgmifs}}, \code{\link{predict.ordinalgmifs}}
 }
-\examples{
-\donttest{
-data(hccframe)
-# To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
-# two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
-# in this demonstration.
-hcc.fit<-ordinal.gmifs(group~MPO_E302_R, x=c("DDIT3_P1313_R", "HDAC9_P137_R"), 
-	data=hccframe)
-summary(hcc.fit)
-}
-}
+%\examples{
+%\donttest{
+%data(hccframe)
+%# To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
+%# two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
+%# in this demonstration.
+%hcc.fit <- ordinalgmifs(group ~ MPO_E302_R, x = c("DDIT3_P1313_R", "HDAC9_P137_R"), data = hccframe)
+%summary(hcc.fit)
+%}
+%}
 \keyword{ methods }

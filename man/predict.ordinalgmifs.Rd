@@ -27,20 +27,19 @@ This function returns a list the includes the predicted probabilities as well as
 Kellie J. Archer, Jiayi Hou, Qing Zhou, Kyle Ferber, John G. Layne, Amanda Gentry
 }
 \seealso{
-See Also \code{\link{coef.ordinalgmifs}}, \code{\link{summary.ordinalgmifs}}, \code{\link{plot.ordinalgmifs}}, \code{\link{ordinalgmifs}}
+See Also \code{\link{ordinalgmifs}}, \code{\link{coef.ordinalgmifs}}, \code{\link{summary.ordinalgmifs}}, \code{\link{plot.ordinalgmifs}} 
 }
-\examples{
-\donttest{
-data(hccframe)
-# To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
-# two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
-# in this demonstration.
-hcc.fit<-ordinal.gmifs(group~MPO_E302_R, x=c("DDIT3_P1313_R", "HDAC9_P137_R"), 
-	data=hccframe)
-phat<-predict(hcc.fit)
-table(phat$class, hccframe$group)
-head(phat$predicted)
-# See the package vignette if an independent test set is used for prediction.
-}
-}
+%\examples{
+%\donttest{
+%data(hccframe)
+%# To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
+%# two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
+%# in this demonstration.
+%hcc.fit <- ordinalgmifs(group~MPO_E302_R, x = c("DDIT3_P1313_R", "HDAC9_P137_R"), data = hccframe)
+%phat <- predict(hcc.fit)
+%table(phat$class, hccframe$group)
+%head(phat$predicted)
+%# See the package vignette if an independent test set is used for prediction.
+%}
+%}
 \keyword{ methods }

@@ -156,7 +156,7 @@ SEXP mult_matrix_ptr(double* A, int dimsa[2],
 	register double sum;
 	//  REMEMBER, R is COLUMN major!!!!!!!!!!!!!!!!!
 	//  for each row in A:
-	for (pAR; pAR<ARend; pAR++, pMR++) {
+	for (; pAR<ARend; pAR++, pMR++) {
 		pACend = &*pAR + dispa;
 		pMCi = &*pMR;
 		//  for each column in B:

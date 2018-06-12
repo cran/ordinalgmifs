@@ -27,6 +27,6 @@ The \code{G} function returns the probability for the indicated link function. T
 Kellie J. Archer, \email{archer.43@osu.edu}
 }
 \seealso{
-See Also as \code{\link{ordinalgmifs}}.
+See Also as \code{ \link{ordinalgmifs} }
 }
 \keyword{ internal }

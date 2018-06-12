@@ -142,7 +142,7 @@ SEXP exp_ptr(int k, int dims[2], double* Z, double* p) {
 	double* pPC;
 	//  REMEMBER, R is COLUMN major!!!!!!!!!!!!!!!!!
 	//  for each row in Z:
-	for (pZR; pZR<ZRend; pZR++, pPR++) {
+	for (; pZR<ZRend; pZR++, pPR++) {
 		pZCend = &*pZR + disp;
 		//  for each column in Z:
 		j = 0;

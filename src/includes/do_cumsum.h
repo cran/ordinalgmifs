@@ -7,13 +7,6 @@
 
  ***********************************************************************/
 
-#ifdef __clang__
-#define COMPILER "clang"
-#pragma clang diagnostic ignored "-Wunused-value"
-#else
-#define COMPILER "gcc"
-#endif
-
 /////////////////////////////////////////////////////////////////////////
 //  function prototypes
 /////////////////////////////////////////////////////////////////////////
@@ -112,7 +105,7 @@ SEXP row_cumsum(double* A, int dims[2]) {
 	register double sum;
 
 	//  for each row in A:
-	for (pAR; pAR<ARend; pAR++, pBC+=dispb) {
+	for (; pAR<ARend; pAR++, pBC+=dispb) {
 		sum = 0.0;
 		pARi = &*pAR;
 		//  for each item in this row of A, and this
@@ -210,13 +203,13 @@ SEXP col_cumsum(double* A, int dims[2]) {
 	register double sum;
 
 	//  for each column in A & B:
-	for (pAC; pAC<=ACend; pAC+=dispa, pBC+=dispb) {
+	for (; pAC<=ACend; pAC+=dispa, pBC+=dispb) {
 		sum = 0.0;
 		pACi = &*pAC;
 		pBCi = &*pBC;
 		//  for each item in this column of A, and this
 		//  column of B:
-		for (pACi; pACi<(pAC+dimsa0); pACi++, pBCi++) {
+		for (; pACi<(pAC+dimsa0); pACi++, pBCi++) {
 			sum += *pACi;
 			*pBCi = sum;
 		}

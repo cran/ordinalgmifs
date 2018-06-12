@@ -1,4 +1,4 @@
-ordinal.gmifs<-function (formula, data, x = NULL, subset, epsilon = 0.001, tol = 1e-05, 
+ordinalgmifs<-function (formula, data, x = NULL, subset, epsilon = 0.001, tol = 1e-05, 
     scale = TRUE, probability.model = "Cumulative", link = "logit", 
     verbose = FALSE, assumption=NULL, ...) 
 {

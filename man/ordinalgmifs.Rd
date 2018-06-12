@@ -1,5 +1,5 @@
-\name{ordinal.gmifs}
-\alias{ordinal.gmifs}
+\name{ordinalgmifs}
+\alias{ordinalgmifs}
 \title{
 Ordinal Generalized Monotone Incremental Forward Stagewise Regression
 }
@@ -7,7 +7,7 @@ Ordinal Generalized Monotone Incremental Forward Stagewise Regression
 This function can fit a cumulative link, adjacent category, forward and backward continuation ratio, and stereotype ordinal response model when the number of parameters exceeds the sample size, using the the generalized monotone incremental forward stagewise method.
 }
 \usage{
-ordinal.gmifs(formula, data, x = NULL, subset, epsilon = 0.001, tol = 1e-05, 
+ordinalgmifs(formula, data, x = NULL, subset, epsilon = 0.001, tol = 1e-05, 
 	scale = TRUE, probability.model = "Cumulative", link = "logit", 
 	verbose=FALSE, assumption=NULL, ...)
 }
@@ -59,8 +59,13 @@ data(hccframe)
 # To minimize processing time, MPO_E302_R is coerced into the model and only a subset of 
 # two CpG sites (DDIT3_P1313_R and HDAC9_P137_R) are included as penalized covariates
 # in this demonstration, and epsilon is set to 0.01
-hcc.fit<-ordinal.gmifs(group~MPO_E302_R, x=c("DDIT3_P1313_R", "HDAC9_P137_R"), 
-	data=hccframe, epsilon=0.01)
+hcc.fit <- ordinalgmifs(group ~ MPO_E302_R, x = c("DDIT3_P1313_R", "HDAC9_P137_R"), 
+	data = hccframe, epsilon = 0.01)
+coef(hcc.fit)
+summary(hcc.fit)
+phat <- predict(hcc.fit)
+head(phat$predicted)
+table(phat$class, hccframe$group)
 }
 \keyword{ models }
 \keyword{ regression }

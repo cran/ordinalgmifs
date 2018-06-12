@@ -110,7 +110,7 @@ SEXP matrix_sum_rows(double* A, int dims[2]) {
 	register double sum = 0.0;
 	//  REMEMBER, R is COLUMN major!!!!!!!!!!!!!!!!!
 	//  for each row in A:
-	for (pAR; pAR<ARend; pAR++, pS++) {
+	for (; pAR<ARend; pAR++, pS++) {
 		pACend = &*pAR + disp;
 		//  for each column in Z:
 		sum = 0.0;

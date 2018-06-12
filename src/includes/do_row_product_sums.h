@@ -131,7 +131,7 @@ SEXP row_product_sums(double* A, double* B, int dims[2]) {
 	int disp = dims0 * (dims1 - 1);
 
 	//  for each row in A & B:
-	for (pAR; pAR<ARend; pAR++, pBR++, pS++) {
+	for (; pAR<ARend; pAR++, pBR++, pS++) {
 		sum = 0.0;
 		pACend = &*pAR + disp;
 		//  for each column in A & B:

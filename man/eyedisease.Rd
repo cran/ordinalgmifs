@@ -33,7 +33,7 @@ Eye Disease Risk Factors data from Section 9.1 of Agresti's Analysis of Ordinal 
   }
 }
 \source{
-See \url{http://www.stat.ufl.edu/~aa/ordinal/data.html}
+See \url{http://users.stat.ufl.edu/~aa/ordinal/data.html}
 }
 \references{
 R. Klein and B.E.K. Klein and S.E. Moss and M.D. Davis and D.L. DeMets. (1984) The Wisconsin Epidemiologic Study of Diabetic Retinopathy II. Prevalence and risk of diabetic retinopathy when age at diagnosis is less than 30 years. \emph{Archives of Opthalmology} 101, 520-526.
@@ -42,16 +42,10 @@ J. Williamson and K. Kim. (1996) A global odds ratio regression model for bivari
 
 A. Agresti. (2010) \emph{Analysis of Ordered Categorical Data}, Second Edition. Wiley. Hoboken, NJ. 
 }
+\seealso{
+See Also as \code{ \link{ordinalgmifs} }
+}
 \examples{
 data(eyedisease)
-\donttest{
-reye.fit<-ordinal.gmifs(rerl ~ age + sex + dose, 
-	x = c("rme", "rre", "riop", "diab", "gh",
-	"sbp", "dbp", "bmi", "pr", "prot"),
- 	data = eyedisease, 
- 	probability.model = "BackwardCR")
-phat<-predict(reye.fit)
-table(phat$class, eyedisease$rerl)
-}
 }
 \keyword{datasets}

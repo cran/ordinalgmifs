@@ -1,6 +1,6 @@
 Package: ordinalgmifs
-Version: 1.0.4
-Date: 2018-06-12
+Version: 1.0.5
+Date: 2018-07-12
 Title: Ordinal Regression for High-Dimensional Data
 Author: Kellie J. Archer, Jiayi Hou, Qing Zhou, Kyle Ferber, John G. Layne, Amanda Gentry
 Maintainer: Kellie J. Archer <archer.43@osu.edu>
@@ -12,6 +12,6 @@ SystemRequirements: C++11
 NeedsCompilation: yes
 BuildVignettes: TRUE
 LazyData: true
-Packaged: 2018-06-12 14:45:14 UTC; karcher
+Packaged: 2018-07-16 14:48:26 UTC; karcher
 Repository: CRAN
-Date/Publication: 2018-06-12 15:08:16 UTC
+Date/Publication: 2018-07-16 15:20:06 UTC

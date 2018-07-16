@@ -27,3 +27,8 @@
   }
 }
 
+\section{Changes in version 1.0.5}{
+\itemize{
+  \item Included pgtol option in optim control argument to avoid infinite values.
+  }
+}

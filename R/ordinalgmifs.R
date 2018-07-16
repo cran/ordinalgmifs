@@ -466,7 +466,7 @@ ordinalgmifs<-function (formula, data, x = NULL, subset, epsilon = 0.001, tol = 
                     w = w, x = x, beta = beta, y = y, k = k, 
                     Ymat = Ymat, method = "L-BFGS-B", upper = c(rep(Inf, 
                       k - 1), rep(1, k - 2)), lower = c(rep(-Inf, 
-                      k - 1), rep(0, k - 2)))
+                      k - 1), rep(0, k - 2)), control=list(pgtol=0.5))
                   alpha <- out$par[1:(k - 1)]
                   alpha.update <- rbind(alpha.update, alpha)
                   phi <- out$par[k:(2 * k - 3)]
@@ -479,7 +479,7 @@ ordinalgmifs<-function (formula, data, x = NULL, subset, epsilon = 0.001, tol = 
                     x = x, beta = beta, y = y, k = k, Ymat = Ymat, 
                     method = "L-BFGS-B", upper = c(rep(Inf, k - 
                       1), rep(1, k - 2)), lower = c(rep(-Inf, 
-                      k - 1), rep(0, k - 2)))
+                      k - 1), rep(0, k - 2)), control=list(pgtol=0.5))
                   alpha <- out$par[1:(k - 1)]
                   alpha.update <- rbind(alpha.update, alpha)
                   phi <- out$par[k:(2 * k - 3)]

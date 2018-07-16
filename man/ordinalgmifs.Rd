@@ -18,7 +18,7 @@ ordinalgmifs(formula, data, x = NULL, subset, epsilon = 0.001, tol = 1e-05,
   \item{x}{an optional matrix of predictors that are to be penalized in the model fitting process.}
   \item{subset}{an optional vector specifying a subset of observations to be used in the fitting process.}
   \item{epsilon}{small incremental amount used to update a coefficient at a given step.}
-  \item{tol}{the iterative process stops when the difference between successive log-likelihoods is less than this specified level of tolerance}
+  \item{tol}{the iterative process stops when the difference between successive log-likelihoods is less than this specified level of tolerance.}
   \item{scale}{logical, if TRUE the penalized predictors are centered and scaled.}
   \item{probability.model}{the type of ordinal response model to be fit. Can be \code{"Cumulative"}, \code{"AdjCategory"}, \code{"ForwardCR"}, \code{"BackwardCR"}, or \code{"Stereotype"}}
   \item{link}{the link function used. Allowable links for \code{"Cumulative"}, \code{"ForwardCR"}, and \code{"BackwardCR"} are \code{"logit"}, \code{"probit"}, and \code{"cloglog"}. For an \code{"AdjCategory"} model only a \code{"loge"} link is allowed; for a \code{"Stereotype"} model only a \code{"logit"} link is allowed.}

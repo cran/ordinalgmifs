@@ -88,6 +88,7 @@ SEXP vector_sum(double* V, int len) {
 	if (!pS) {
 		Rprintf("C code vector_sum:  Couldn't allocate");
 		Rprintf("vector to return!\n");
+		UNPROTECT(protections);
 		return R_NilValue;
 	}
 	//  use some pointer math for speed:

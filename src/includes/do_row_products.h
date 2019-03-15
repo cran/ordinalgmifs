@@ -96,6 +96,7 @@ SEXP row_products(double* A, int dims[2]) {
 	if (!pS) {
 		Rprintf("C code row_products:  Couldn't allocate");
 		Rprintf("vector to return!\n");
+		UNPROTECT(protections);
 		return R_NilValue;
 	}
 	int dims0 = dims[0], dims1 = dims[1];

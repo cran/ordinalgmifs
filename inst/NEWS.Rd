@@ -32,3 +32,9 @@
   \item Included pgtol option in optim control argument to avoid infinite values.
   }
 }
+
+\section{Changes in version 1.0.6}{
+\itemize{
+  \item Fix potential PROTECT errors flagged by rchk.
+  }
+}

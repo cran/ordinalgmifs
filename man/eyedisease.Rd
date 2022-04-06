@@ -32,9 +32,6 @@ Eye Disease Risk Factors data from Section 9.1 of Agresti's Analysis of Ordinal 
     \item{\code{id}}{subject identifier}
   }
 }
-\source{
-See \url{http://users.stat.ufl.edu/~aa/ordinal/data.html}
-}
 \references{
 R. Klein and B.E.K. Klein and S.E. Moss and M.D. Davis and D.L. DeMets. (1984) The Wisconsin Epidemiologic Study of Diabetic Retinopathy II. Prevalence and risk of diabetic retinopathy when age at diagnosis is less than 30 years. \emph{Archives of Opthalmology} 101, 520-526.
 

@@ -62,7 +62,8 @@ cirrhotic but not having HCC (N=16, Cirrhosis non-HCC), and HCC (N=20, Tumor).
   }
 }
 \source{
-The full dataset is available as GSE18081 from Gene Expression Omnibus at \url{http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE18081}
+The full dataset is available as GSE18081 from Gene Expression Omnibus at 
+\url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE18081}
 }
 \references{
 Archer KJ, Mas VR, Maluf DG, Fisher RA. High-throughput assessment of CpG site methylation for distinguishing between HCV-cirrhosis and HCV-associated hepatocellular carcinoma. Molecular Genetics and Genomics, 283(4): 341-349, 2010.
